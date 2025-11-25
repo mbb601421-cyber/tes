@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Detail Produk | MOD Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style>
+        /* Gaya dari index.html yang dibutuhkan: */
+        body {
+            padding-top: 70px;
+            background-color: #cde;
+            /* Latar belakang seperti di produk.html */
+        }
+
+        .navbar-dark {
+            background-color: #343a40 !important;
+            /* Background gelap untuk navbar seperti di produk.html */
+        }
+
+        .navbar-dark .navbar-brand,
+        .navbar-dark .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .navbar-dark .nav-link.active {
+            color: #ffffff;
+        }
+
+        /* Container untuk detail produk */
+        .detail-card {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .feature-list li i {
+            color: #198754;
+            /* Warna hijau untuk ikon check */
+            margin-right: 10px;
+        }
+
+        .buy-button-detail {
+            font-size: 1.2em;
+            padding: 12px 30px;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark shadow-sm fixed-top" style="background-color: #343a40;">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="index.html">MOD Store</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produk.html">Produk</a></li>
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Tentang/Detail</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <h1 id="product-title" align="center" class="fw-bold rounded shadow-sm text-dark bg-light p-3">
+                    Detail Produk: <span id="product-name">...</span>
+                </h1>
+                <hr style="height: 5px; background-color: #d4a57f;">
+            </div>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="detail-card">
+                    <div class="row">
+                        <div class="col-md-5 text-center">
+                            <img id="detail-product-img" src="" class="detail-img mb-3" alt="Gambar Produk">
+
+                            <h2 class="text-danger fw-bold mt-3">Harga Mulai Dari: <span id="detail-price"></span>
+                            </h2>
+                            <p class="text-muted" id="detail-category"></p>
+
+                            <a href="#" id="buy-link" class="btn btn-success buy-button-detail mt-3">
+                                <i class="bi bi-whatsapp"></i> Beli Sekarang Via WhatsApp
+                            </a>
+                            <p class="mt-2 text-sm text-secondary">*Link pembelian akan mengarahkan ke WhatsApp admin.</p>
+                        </div>
+
+                        <div class="col-md-7">
+                            <h3 class="fw-bold text-primary" id="detail-short-desc">...</h3>
+                            <p class="lead" id="detail-long-desc">...</p>
+
+                            <h4 class="fw-bold mt-4 mb-3" style="color: #6f4e37;">Fitur Utama:</h4>
+                            <ul class="feature-list" id="detail-features">
+                                </ul>
+
+                            <h4 class="fw-bold mt-4 mb-3" style="color: #6f4e37;">Catatan Penting:</h4>
+                            <p class="text-danger small">Pastikan Anda membaca ketentuan penggunaan sebelum membeli.
+                                Garansi hanya berlaku sesuai syarat dan ketentuan yang berlaku.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Data Produk - Sesuaikan dengan detail yang sebenarnya
+        const productData = {
+            "br_mods": {
+                name: "BR MODS",
+                img: "assets/img/br.png",
+                price: "Rp 30.000 (1 Hari)",
+                category: "ROOT & NON ROOT",
+                shortDesc: "Mod Menu Terbaik untuk pengalaman bermain Battle Royale yang lebih maksimal!",
+                longDesc: "BR MODS menawarkan berbagai fitur canggih yang dirancang untuk meningkatkan akurasi dan kesadaran Anda di medan pertempuran. Cocok untuk Anda yang ingin dominasi di setiap game.",
+                features: [
+                    "Aimbot Akurat (Body/Head)",
+                    "Wallhack (ESP Lines/Box)",
+                    "Medkit Running",
+                    "Speed Hack Aman (Terbatas)",
+                    "Anti Banned system v2.0"
+                ]
+            },
+            "drip_client": {
+                name: "DRIP CLIENT",
+                img: "assets/img/dc.png",
+                price: "Rp 100.000 (7 Hari)",
+                category: "ROOT & NON ROOT",
+                shortDesc: "Klien Premium dengan kestabilan dan fitur yang sangat mumpuni.",
+                longDesc: "DRIP CLIENT dikenal dengan stabilitasnya yang tinggi dan minim deteksi. Pilihan tepat bagi pemain serius yang mencari performa tanpa mengorbankan keamanan akun.",
+                features: [
+                    "Advanced Aimbot Configuration",
+                    "Ghost Mode (Pilih Fitur)",
+                    "Damage Multiplier (Level 1-3)",
+                    "Anti Screenshot & Anti Record",
+                    "Update Cepat Sesuai Patch Game"
+                ]
+            },
+            "hg_cheats": {
+                name: "HG CHEATS",
+                img: "assets/img/hg.png",
+                price: "Rp 100.000 (7 Hari)",
+                category: "ROOT & NON ROOT",
+                shortDesc: "Cheat serbaguna dengan antarmuka yang ramah pengguna.",
+                longDesc: "HG CHEATS menyediakan keseimbangan antara kemudahan penggunaan dan fungsionalitas. Ideal untuk pemula yang baru mencoba mod menu, dengan panduan lengkap.",
+                features: [
+                    "Auto Headshot 80%",
+                    "Teleport Kill (Risiko Tinggi)",
+                    "Fly Hack",
+                    "Fix Lag / Optimasi FPS",
+                    "Support Semua Versi Android"
+                ]
+            },
+            "fluorite_ios": {
+                name: "FLUORITE IOS",
+                img: "assets/img/FLUORITEIOS.png",
+                price: "Rp 300.000 (31 Hari)",
+                category: "IOS NO JAILBREAK",
+                shortDesc: "Mod Menu khusus pengguna iOS tanpa perlu Jailbreak!",
+                longDesc: "FLUORITE IOS menawarkan solusi cheat yang stabil dan mudah diinstal pada perangkat iOS tanpa modifikasi sistem yang rumit. Dibuat khusus untuk keamanan iOS.",
+                features: [
+                    "iOS Bypass Protection",
+                    "Memory Hacking (Pilih Fitur)",
+                    "Visual Mods Only (Minim Risiko)",
+                    "Premium Aimbot iOS",
+                    "Support iOS 14 - 17"
+                ]
+            },
+            "prime_mods": {
+                name: "PRIME MODS",
+                img: "assets/img/prime.png",
+                price: "Rp 350.000 (30 Hari)",
+                category: "IOS NO JAILBREAK",
+                shortDesc: "Solusi cheat level Prime untuk pengguna iOS dengan update terjaga.",
+                longDesc: "PRIME MODS adalah pilihan terbaik untuk pengguna iOS yang menginginkan mod menu dengan fitur terlengkap dan tim pengembang yang responsif terhadap update game.",
+                features: [
+                    "Super High Security",
+                    "No Recoil & Fast Reload",
+                    "Anti Report System",
+                    "Vehicle Teleport",
+                    "Cloud Configuration"
+                ]
+            },
+            "pato_team": {
+                name: "PATO TEAM",
+                img: "assets/img/pato.png",
+                price: "Rp 250.000 (7 Hari)",
+                category: "ROOT & NON ROOT",
+                shortDesc: "Cheat kelas atas dengan fitur unik dan keamanan tinggi.",
+                longDesc: "PATO TEAM fokus pada fitur unik yang tidak dimiliki mod menu lain, memberikan keunggulan tak tertandingi di lapangan. Investasi terbaik untuk dominasi sementara.",
+                features: [
+                    "Invisible Gloo Wall",
+                    "One Hit Kill (Targeted)",
+                    "Map & Drone View Extender",
+                    "Customizable Crosshair",
+                    "Advanced Bypass Detection"
+                ]
+            }
+        };
+
+        // Fungsi untuk mendapatkan parameter dari URL
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        // Ambil ID produk dari URL
+        const productId = getUrlParameter('product');
+        const product = productData[productId];
+
+        // Tampilkan detail produk
+        if (product) {
+            document.getElementById('product-name').textContent = product.name;
+            document.getElementById('detail-product-img').src = product.img;
+            document.getElementById('detail-price').textContent = product.price;
+            document.getElementById('detail-category').textContent = 'Kategori: ' + product.category;
+            document.getElementById('detail-short-desc').textContent = product.shortDesc;
+            document.getElementById('detail-long-desc').textContent = product.longDesc;
+
+            // Buat daftar fitur
+            const featuresList = document.getElementById('detail-features');
+            product.features.forEach(feature => {
+                const li = document.createElement('li');
+                li.innerHTML = '<i class="bi bi-check-circle-fill"></i>' + feature;
+                featuresList.appendChild(li);
+            });
+
+            // Set link WhatsApp (gunakan template)
+            const whatsappNumber = "6285607193682"; // Ganti dengan nomor WhatsApp Anda
+            const message = `Halo admin, saya tertarik untuk membeli produk ${product.name} dengan harga ${product.price}. Mohon infonya untuk proses pembelian.`;
+            const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            document.getElementById('buy-link').href = whatsappLink;
+
+            // Perbarui Judul Halaman
+            document.title = `Detail Produk | ${product.name}`;
+
+        } else {
+            // Jika produk tidak ditemukan
+            document.getElementById('product-title').innerHTML = `<i class="bi bi-x-octagon-fill text-danger"></i> Produk Tidak Ditemukan`;
+            document.getElementById('detail-long-desc').textContent = "Mohon maaf, detail produk yang Anda cari tidak tersedia. Silakan kembali ke halaman produk.";
+            document.getElementById('detail-product-img').src = "";
+            document.getElementById('detail-price').textContent = "-";
+            document.getElementById('detail-category').textContent = "";
+            document.getElementById('detail-short-desc').textContent = "";
+            document.getElementById('detail-features').innerHTML = '<li><i class="bi bi-arrow-left-circle-fill"></i> <a href="produk.html">Kembali ke Daftar Produk</a></li>';
+            document.getElementById('buy-link').classList.add('d-none'); // Sembunyikan tombol beli
+        }
+    </script>
+</body>
+
+</html>

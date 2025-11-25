@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Carousel Hero</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        /* Tambahkan jarak agar carousel tidak ketutup navbar */
+        body {
+            padding-top: 70px;
+            /* Sesuaikan jika navbar lebih tinggi */
+        }
+
+        .carousel-item img {
+            height: calc(100vh - 70px);
+            /* Full layar dikurangi tinggi navbar */
+            width: 100%;
+            object-fit: cover;
+        }
+
+        /* Overlay hitam */
+        .carousel-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 1;
+            /* Overlay z-index 1 */
+        }
+
+        /* Posisi caption */
+        .carousel-caption {
+            z-index: 2;
+            /* Ditingkatkan agar di atas overlay */
+        }
+
+        /* Animasi fade + slide up */
+        .carousel-caption h1,
+        .carousel-caption p,
+        .carousel-caption a {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: all 0.9s ease;
+        }
+
+        .carousel-item.active .carousel-caption h1,
+        .carousel-item.active .carousel-caption p,
+        .carousel-item.active .carousel-caption a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Tombol rapi */
+        .btn-warning {
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 30px;
+        }
+
+        /* --- CSS UNTUK GAMBAR PRODUK --- */
+
+        /* Memberi padding horizontal pada kolom (col-md-4) untuk jarak antar gambar */
+        .menu-item-col {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        /* Mengatur agar gambar produk memiliki lebar maksimal 80% dari container-nya */
+        .menu-item-img {
+            max-width: 80%;
+            height: auto;
+            display: block;
+            margin: 0 auto 15px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            /* Transisi hover */
+        }
+
+        /* Mengatur style panel-body untuk produk */
+        .panel-body {
+            text-align: center;
+        }
+
+
+        /* Efek hover pada item produk */
+        .panel-default:hover .menu-item-img {
+            transform: scale(1.05);
+            /* Gambar sedikit membesar saat di-hover */
+        }
+
+        /* Hapus border panel yang default-nya ada di Bootstrap 3/4 */
+        .panel-default {
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand fw-bold" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="produk.html">Produk</a></li>
+                    <li class="nav-item"><a class="nav-link" href="detail.html">Tentang/Detail</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                class="active"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="assets/img/dc.png" class="d-block" alt="Gambar Mobil 1">
+                <div class="carousel-caption">
+                    <h1 class="display-4 fw-bold text-white">Selamat Datang</h1>
+                    <p class="lead text-white">di Trust Mobil</p>
+                    <a href="produk.html" class="btn btn-warning">Lihat Produk</a>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="assets/img/br.png" class="d-block" alt="Gambar Mobil 2">
+                <div class="carousel-caption">
+                    <h1 class="display-4 fw-bold text-white">Selamat Datang</h1>
+                    <p class="lead text-white">di Trust Mobil</p>
+                    <a href="#" class="btn btn-warning">Lihat Produk</a>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="assets/img/hg.png" class="d-block" alt="Gambar Mobil 3">
+                <div class="carousel-caption">
+                    <h1 class="display-4 fw-bold text-white">Selamat Datang</h1>
+                    <p class="lead text-white">di Trust Mobil</p>
+                    <a href="produk.html" class="btn btn-warning">Lihat Produk</a>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <div class="panel panel-default" style="padding: 20px 30px 40px 50px;">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 style="padding: 20px 30px 40px 50px; background: #cde;" align="center">MOD MENU FREE FIRE</h1>
+                    <hr style="height: 2px; background-color: #d4a57f;">
+                </div>
+            </div>
+
+            <div class="row">
+    <!-- ITEM 1 -->
+    <div class="col-md-4 menu-item-col">
+        <div class="panel panel-default">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="panel-body">
+                    <img src="assets/img/br.png" class="img-fluid menu-item-img" alt="BR MODS">
+                    <h4 style="color: #6f4e37;" align="center">BR MODS</h4>
+                    <div class="text-left">
+                        <b><p>LIST HARGA</p></b>
+                        <b><p>1 DAY: 30,000</p></b>
+                        <b><p>7 DAY: 100,000</p></b>
+                        <b><p>15 DAY: 150,000</p></b>
+                        <b><p>ROOT & NON ROOT</p></b>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- ITEM 2 -->
+    <div class="col-md-4 menu-item-col">
+        <div class="panel panel-default">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="panel-body">
+                    <img src="assets/img/dc.png" class="img-fluid menu-item-img" alt="DRIP CLIENT">
+                    <h4 style="color: #6f4e37;" align="center">DRIP CLIENT</h4>
+                    <div class="text-left">
+                        <b><p>LIST HARGA</p></b>
+                        <b><p>7 DAY: 100,000</p></b>
+                        <b><p>15 DAY: 170,000</p></b>
+                        <b><p>ROOT & NON ROOT</p></b>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- ITEM 3 -->
+    <div class="col-md-4 menu-item-col">
+        <div class="panel panel-default">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="panel-body">
+                    <img src="assets/img/hg.png" class="img-fluid menu-item-img" alt="HG CHEATS">
+                    <h4 style="color: #6f4e37;" align="center">HG CHEATS</h4>
+                    <div class="text-left">
+                        <b><p>LIST HARGA</p></b>
+                        <b><p>7 DAY: 100,000</p></b>
+                        <b><p>ROOT & NON ROOT</p></b>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- BARIS 2 -->
+<div class="row mt-4">
+    <!-- ITEM 4 -->
+    <div class="col-md-4 menu-item-col">
+        <div class="panel panel-default">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="panel-body">
+                    <img src="assets/img/FLUORITEIOS.png" class="img-fluid menu-item-img" alt="VIP CHEATS">
+                    <h4 style="color: #6f4e37;" align="center">FLUORITE IOS</h4>
+                    <div class="text-left">
+                        <b><p>LIST HARGA</p></b>
+                        <b><p>31 DAY: 300,000</p></b>
+                        <b><p>IOS NO JAILBREAK</p></b>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- ITEM 5 -->
+    <div class="col-md-4 menu-item-col">
+        <div class="panel panel-default">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="panel-body">
+                    <img src="assets/img/prime.png" class="img-fluid menu-item-img" alt="PRO CHEATS">
+                    <h4 style="color: #6f4e37;" align="center">PRIME MODS</h4>
+                    <div class="text-left">
+                        <b><p>LIST HARGA</p></b>
+                        <b><p>30 DAY: 350,000</p></b>
+                        <b><p>IOS NO JAILBREAK</p></b>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <!-- ITEM 6 -->
+    <div class="col-md-4 menu-item-col">
+        <div class="panel panel-default">
+            <a href="#" class="text-decoration-none text-dark">
+                <div class="panel-body">
+                    <img src="assets/img/pato.png" class="img-fluid menu-item-img" alt="PREMIUM CHEATS">
+                    <h4 style="color: #6f4e37;" align="center">PATO TEAM</h4>
+                    <div class="text-left">
+                        <b><p>LIST HARGA</p></b>
+                        <b><p>7 DAY: 250,000</p></b>
+                        <b><p>ROOT & NON ROOT</p></b>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
